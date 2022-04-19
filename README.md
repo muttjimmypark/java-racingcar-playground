@@ -1,26 +1,23 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
-
----
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
-
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
-
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
-
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+### 구현할 기능 목록
+1. Car
+   1. verifyName (static) : 이름이 5자를 초과하지 않도록 함
+   2. 생성자 : 생성시 이름을 받도록 함
+   3. getName : 이름 값을 반환
+   4. getVelocity : 0~9사이 random값을 반환
+   5. getMileage : 주행거리(mileage)값을 반환
+   6. stackMileage : 주행거리를 1씩 증가
+   7. initializeMileage : 주행거리를 1로 초기화
+####
+2. UserInterface
+    1. getCarsName : 자동차 이름을 입력받는 기능. [1-1]에서 verify하여 false를 받으면 재입력 요구
+    2. printRacingStart : "실행결과" 문장 출력
+    3. printRacingStatus : 경주 상황을 출력 (getName, getMileage 사용)
+    4. printRacingWinner : 최종 우승자를 출력한다
+####
+3. Application : main 실행부
+    1. UserInterface.getCarsName -> Car.verifyName -> Car.생성자 -> List<Car> Cars
+    2. initializeMileage
+    3. 입력받은 시도 횟수 만큼 아래 내용을 반복 
+       1. getVelocity -> stackMileage
+       2. List<Car> -> printRacingStatus
+    4. printRacingWinner
