@@ -1,4 +1,4 @@
-package SAC;
+package RacingCar;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public void initializeMileage() {
-        mileage = 1;
+        mileage = 0;
     }
 
     public int getMileage() {

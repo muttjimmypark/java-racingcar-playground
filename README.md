@@ -10,9 +10,10 @@
 ####
 2. UserInterface
     1. getCarsName : 자동차 이름을 입력받는 기능. [1-1]에서 verify하여 false를 받으면 재입력 요구
-    2. printRacingStart : "실행결과" 문장 출력
-    3. printRacingStatus : 경주 상황을 출력 (getName, getMileage 사용)
-    4. printRacingWinner : 최종 우승자를 출력한다
+    2. getLap : 시도횟수를 입력받는 기능
+    3. printRacingStart : "실행결과" 문장 출력
+    4. printRacingStatus : 경주 상황을 출력 (getName, getMileage 사용)
+    5. printRacingWinner : 최종 우승자를 출력한다
 ####
 3. Application : main 실행부
     1. UserInterface.getCarsName -> Car.verifyName -> Car.생성자 -> List<Car> Cars
