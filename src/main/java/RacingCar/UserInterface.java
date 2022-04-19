@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class UserInterface {
     public static List<String> inputCarsName() {
@@ -16,7 +15,7 @@ public class UserInterface {
             System.out.println("자동차 이름은 5자를 초과할 수 없습니다 : " + wrongNames);
         }
 
-        names = names.stream().filter(Car::verifyName).collect(Collectors.toList());
+        names = names.stream().filter(Car::verifyName).toList();
         System.out.println("생성 성공 : " + names);
 
         return names;

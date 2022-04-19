@@ -1,6 +1,5 @@
 package RacingCar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +9,7 @@ public class CarTest {
     @Test
     @DisplayName("이름이 5자 초과하지 않도록 함")
     void verifyNameTest() {
-        Assertions.assertThat(Car.verifyName("Yena")).isTrue();
+        assertThat(Car.verifyName("Yena")).isTrue();
         assertThat(Car.verifyName("Eunbi")).isTrue();
         assertThat(Car.verifyName("Sakura")).isFalse();
     }
