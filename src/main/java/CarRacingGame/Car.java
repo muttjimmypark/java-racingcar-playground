@@ -19,6 +19,14 @@ public class Car {
         carPosition.add();
     }
 
+    public String getName() {
+        return carName.getName();
+    }
+
+    public int getPosition() {
+        return carPosition.getPosition();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

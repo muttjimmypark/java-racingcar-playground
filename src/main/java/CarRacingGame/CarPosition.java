@@ -16,6 +16,10 @@ public class CarPosition {
         carPosition++;
     }
 
+    public int getPosition() {
+        return carPosition;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

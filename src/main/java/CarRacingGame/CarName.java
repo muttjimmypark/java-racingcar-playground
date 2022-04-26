@@ -15,6 +15,10 @@ public class CarName {
         this.carName = carName;
     }
 
+    public String getName() {
+        return carName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
