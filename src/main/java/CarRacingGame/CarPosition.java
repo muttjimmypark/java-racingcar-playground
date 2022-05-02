@@ -7,13 +7,21 @@ public class CarPosition {
 
     public CarPosition(int carPosition) {
         if (carPosition < 0) {
-            throw new IllegalArgumentException("자동차 위치 조건 위반 : 좌표값은 음수일 수 없음");
+            throw new IllegalArgumentException(carPosition + "  자동차 위치 조건 위반 : 좌표값은 음수일 수 없음");
         }
         this.carPosition = carPosition;
     }
 
-    public void add() {
+    public void move() {
         carPosition++;
+    }
+
+    public void findBiggerPosition(Car car) {
+        carPosition = Math.max(carPosition, car.getPosition());
+    }
+
+    public boolean isThisCarHere(Car car) {
+        return carPosition == car.getPosition();
     }
 
     public int getPosition() {

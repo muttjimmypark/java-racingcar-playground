@@ -10,7 +10,7 @@ public class CarName {
 
     public CarName(String carName) {
         if (carName.length() < NAME_LENGTH_MIN || carName.length() > NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException("자동차 이름 조건 위반 : 길이는 1~5자");
+            throw new IllegalArgumentException(carName + " = 자동차 이름 조건 위반 : 길이는 1~5자");
         }
         this.carName = carName;
     }
