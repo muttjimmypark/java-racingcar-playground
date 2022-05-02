@@ -19,6 +19,6 @@ public class CarPositionTest {
     @Test
     void isThisCarHere() {
         carPosition = new CarPosition(5);
-        assertThat(carPosition.isThisCarHere(new Car("ssam", 5))).isEqualTo(true);
+        assertThat(carPosition.isThisCarHere(new Car("ssam", 5))).isTrue();
     }
 }

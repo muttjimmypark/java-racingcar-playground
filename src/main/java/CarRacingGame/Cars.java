@@ -1,6 +1,7 @@
 package CarRacingGame;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Cars implements Iterable<Car> {
     private final List<Car> cars;
@@ -10,7 +11,7 @@ public class Cars implements Iterable<Car> {
     }
 
     public Cars(String carsNames) {
-        List<String> splitNames = Arrays.asList(carsNames.split(","));
+        List<String> splitNames = Arrays.stream(carsNames.split(",")).distinct().collect(Collectors.toList());
         List<Car> result = new ArrayList<>();
 
         splitNames.forEach(name -> {
@@ -26,11 +27,9 @@ public class Cars implements Iterable<Car> {
     }
 
     public void moveWithCondition() {
-        cars.forEach(car -> {
-            if (InputUI.moveCondition()) {
-                car.move();
-            }
-        });
+        cars.stream()
+                .filter(car -> InputUI.moveCondition())
+                .forEach(Car::move);
     }
 
     public List<String> getWinners() {
@@ -47,32 +46,14 @@ public class Cars implements Iterable<Car> {
     }
 
     private List<String> getWinnersName(CarPosition winnerPosition) {
-        List<String> result = new ArrayList<>();
-
-        cars.forEach(car -> {
-            if (winnerPosition.isThisCarHere(car)) {
-                result.add(car.getName());
-            }
-        });
-
-        return result;
+        return cars.stream()
+                .filter(winnerPosition::isThisCarHere)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Iterator<Car> iterator() {
         return cars.iterator();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cars cars1 = (Cars) o;
-        return cars.equals(cars1.cars);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cars);
     }
 }
