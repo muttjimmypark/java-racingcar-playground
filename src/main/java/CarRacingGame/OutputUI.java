@@ -11,6 +11,7 @@ public class OutputUI {
 
     public static void printCarsStatus(Cars cars) {
         cars.forEach(OutputUI::printCarStatus);
+        System.out.println();
     }
 
     public static void printWinnerNames(List<String> winnerNames) {
