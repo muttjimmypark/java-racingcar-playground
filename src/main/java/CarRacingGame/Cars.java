@@ -11,10 +11,10 @@ public class Cars implements Iterable<Car> {
     }
 
     public Cars(String carsNames) {
-        List<String> splitNames = Arrays.stream(carsNames.split(",")).distinct().collect(Collectors.toList());
+        List<String> carNames = Arrays.stream(carsNames.split(",")).distinct().collect(Collectors.toList());
         List<Car> result = new ArrayList<>();
 
-        splitNames.forEach(name -> {
+        carNames.forEach(name -> {
             try {
                 Car verifyCar = new Car(name);
                 result.add(verifyCar);
@@ -28,21 +28,20 @@ public class Cars implements Iterable<Car> {
 
     public void moveWithCondition() {
         cars.stream()
-                .filter(car -> InputUI.moveCondition())
+                .filter(car -> InputUi.moveSignal())
                 .forEach(Car::move);
     }
 
     public List<String> getWinners() {
         CarPosition winnerPosition = new CarPosition(0);
 
-        findWinnerPosition(winnerPosition);
+        setBiggerPosition(winnerPosition);
 
         return getWinnersName(winnerPosition);
     }
 
-    private void findWinnerPosition(CarPosition winnerPosition) {
-//        cars.forEach(car -> winnerPosition.setMaxPosition(car));
-        cars.forEach(winnerPosition::findBiggerPosition);
+    private void setBiggerPosition(CarPosition winnerPosition) {
+        cars.forEach(winnerPosition::setBiggerPosition);
     }
 
     private List<String> getWinnersName(CarPosition winnerPosition) {

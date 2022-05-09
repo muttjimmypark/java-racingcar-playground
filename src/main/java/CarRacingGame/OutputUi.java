@@ -4,13 +4,13 @@ import java.util.List;
 
 import static CarRacingGame.RacingGame.NAME_LENGTH_MAX;
 
-public class OutputUI {
+public class OutputUi {
     public static void printRacingStart() {
         System.out.println("실행 결과");
     }
 
     public static void printCarsStatus(Cars cars) {
-        cars.forEach(OutputUI::printCarStatus);
+        cars.forEach(OutputUi::printCarStatus);
         System.out.println();
     }
 

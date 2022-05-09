@@ -16,7 +16,7 @@ public class CarPosition {
         carPosition++;
     }
 
-    public void findBiggerPosition(Car car) {
+    public void setBiggerPosition(Car car) {
         carPosition = Math.max(carPosition, car.getPosition());
     }
 

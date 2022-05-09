@@ -12,7 +12,7 @@ public class CarPositionTest {
     @CsvSource({"4,5", "5,5", "6,6"})
     void findBiggerPosition(int input, int output) {
         carPosition = new CarPosition(5);
-        carPosition.findBiggerPosition(new Car("gitir", input));
+        carPosition.setBiggerPosition(new Car("gitir", input));
         assertThat(carPosition.getPosition()).isEqualTo(output);
     }
 
